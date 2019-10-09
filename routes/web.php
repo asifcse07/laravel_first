@@ -13,14 +13,19 @@ use Illuminate\Database\Connection;
 */
 
 Route::get('/', function () {
-	
     return view('welcome');
 });
 
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+
+// Route::prefix('admin')->group(function () {
+// 	Route::get('/users', 'UserController@index')->name('home');
+// });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
