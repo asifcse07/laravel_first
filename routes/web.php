@@ -16,9 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
+
 
 // Route::prefix('admin')->group(function () {
 // 	Route::get('/users', 'UserController@index')->name('home');
@@ -27,5 +25,13 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth', 'admin']], function(){
+	Route::get('/dashboard', function () {
+	    return view('admin.dashboard');
+	});
+});
+
+
 
 

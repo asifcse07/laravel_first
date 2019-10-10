@@ -75,7 +75,6 @@
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">User Register</a>
                         @endif
-                        <a href="{{ route('register') }}">Service Provider Register</a>
                     @endauth
                 </div>
             @endif
