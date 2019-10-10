@@ -30,6 +30,9 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 	Route::get('/dashboard', function () {
 	    return view('admin.dashboard');
 	});
+
+	Route::get('/service-list', 'ServiceController@index');
+	Route::post('/add-service', 'ServiceController@store');
 });
 
 
