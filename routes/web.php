@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
 	Route::get('/service-list', 'ServiceController@index');
 	Route::post('/add-service', 'ServiceController@store');
+	Route::post('/add-sub-service', 'ServiceController@subSrvcStore');
+	Route::get('/all-services', 'ServiceController@getServiceData');
 });
 
 

@@ -28,10 +28,10 @@
     <div class="row">
         <div class="col-sm-7">
             <div class="white-box">
-                <h3 class="box-title">Basic Table</h3>
+                <h3 class="box-title">Services</h3>
                 {{-- <p class="text-muted">Add class <code>.table</code></p> --}}
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table serviceTbl">
                         <thead>
                             <tr>
                                 <th style="width:10%">#</th>
@@ -41,37 +41,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Deshmukh</td>
-                                <td>Prohaska</td>
-                                <td>@Genelia</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Deshmukh</td>
-                                <td>Gaylord</td>
-                                <td>@Ritesh</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Sanghani</td>
-                                <td>Gusikowski</td>
-                                <td>@Govinda</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Roshan</td>
-                                <td>Rogahn</td>
-                                <td>@Hritik</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
-	    
+        <div class="col-sm-5">
+            {{-- <div class="white-box">
+                <h3 class="box-title">Add Sub Services</h3>
+                <form class="form-horizontal form-material">
+                    <div class="form-group">
+                        <label class="col-md-12">Sub Service Name</label>
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Johnathan Doe"
+                                class="form-control form-control-line"> </div>
+                    </div>
+                </form>
+            </div> --}}
+        </div>
     </div>
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -100,6 +88,47 @@
     </div>
 </div> 
 
+
+<div class="modal fade" id="subServiceModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Add Service</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+            <form role="form" class="addServiceForm">
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+                <input type="hidden" name="parent_id" class="parent_id">
+                <div class="form-group subServiceDiv">
+                    <label for="service_name"><span class="glyphicon glyphicon-home"></span> Service Name</label>
+                    <div class="inputDiv">
+                        <input type="text" class="form-control" id="sub_service_name" placeholder="Enter service sub service name" name="name[]" style="width: 80%">
+                        <button class="button btn addMoreSub" style="width: 20%;float: right; position: relative;bottom: 36px;">
+                        <span class="glyphicon glyphicon-plus">
+                        </button></span>
+                    </div>
+                    
+                </div>
+                <button type="submit" class="btn btn-success btn-block saveSubServiceBtn"><span class="glyphicon glyphicon-off"></span> Add Sub Service</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+        <div class="hide cloneForm">
+            <div class="inputDiv" style="margin-top: 7px">
+                <input type="text" class="form-control" id="sub_service_name" placeholder="Enter service sub service name" name="name[]" style="width: 80%">
+                <button class="button btn removeSub" style="width: 20%;float: right; position: relative;bottom: 36px;">
+                    <span class="glyphicon glyphicon-minus">
+                </button></span>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+</div> 
 
 @endsection
 
